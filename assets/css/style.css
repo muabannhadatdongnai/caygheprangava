@@ -80,6 +80,18 @@ button{ font-family:inherit; cursor:pointer; }
 .btn-block{ width:100%; }
 
 /* ================= HEADER ================= */
+.policy-strip{
+  background:var(--brand-darker); color:#fff; font-size:12.5px; font-weight:600;
+  text-align:center; padding:7px 16px; line-height:1.4;
+}
+.policy-strip i{ margin-right:6px; }
+.policy-strip strong{ color:#fff; }
+.policy-note{
+  display:flex; gap:10px; align-items:flex-start; background:var(--brand-pale);
+  border:1px solid var(--brand); border-radius:var(--radius-md); padding:14px 16px;
+  margin-top:18px; font-size:13.5px; color:var(--ink); line-height:1.5;
+}
+.policy-note i{ color:var(--brand-darker); font-size:16px; margin-top:2px; flex:none; }
 .site-header{
   position:sticky; top:0; z-index:60;
   background:rgba(251,250,245,.92); backdrop-filter:blur(8px);
@@ -211,7 +223,7 @@ button{ font-family:inherit; cursor:pointer; }
 .audience-card p{ font-size:13.5px; color:var(--ink-faint); margin-top:8px; }
 
 /* ================= PRICING ================= */
-.price-table-wrap{ overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius-md); background:var(--white); }
+.price-table-wrap{ overflow-x:auto; -webkit-overflow-scrolling:touch; min-width:0; max-width:100%; border:1px solid var(--line); border-radius:var(--radius-md); background:var(--white); }
 table.price-table{ width:100%; border-collapse:collapse; min-width:560px; font-size:14.5px; }
 table.price-table caption{ text-align:left; padding:18px 20px 6px; font-weight:700; font-size:15px; color:var(--brand-darker); }
 table.price-table th, table.price-table td{ padding:13px 20px; text-align:left; border-bottom:1px solid var(--line); }
@@ -244,6 +256,7 @@ table.price-table td.price{ font-weight:700; color:var(--brand-darker); white-sp
   padding:4px 9px; border-radius:99px; letter-spacing:.02em;
 }
 .gallery-more{ text-align:center; margin-top:28px; }
+.gallery-more .btn{ white-space:normal; max-width:100%; text-align:center; }
 
 /* ================= INNER PAGE HERO (bảng giá / hình ảnh / giới thiệu) ================= */
 .page-hero{ padding:44px 0 40px; background:linear-gradient(180deg,var(--brand-pale) 0%, var(--paper) 100%); border-bottom:1px solid var(--line); }
@@ -349,7 +362,9 @@ table.price-table td.price{ font-weight:700; color:var(--brand-darker); white-sp
   color:#fff; font-size:24px; box-shadow:0 8px 20px -6px rgba(20,26,12,.45); border:none; position:relative;
 }
 .float-sidebar .fs-hotline{ background:var(--brand); }
-.float-sidebar .fs-zalo{ background:#0068ff; }
+.float-sidebar .fs-zalo{ background:transparent; padding:0; overflow:hidden; }
+.float-sidebar .fs-zalo img{ width:100%; height:100%; border-radius:50%; object-fit:cover; }
+.ico-zalo{ width:1em; height:1em; display:inline-block; vertical-align:-0.16em; border-radius:50%; }
 .float-sidebar .fs-messenger{ background:#0084ff; }
 .float-sidebar .fs-top{ background:#2c3320; opacity:0; pointer-events:none; transition:opacity .2s ease; }
 .float-sidebar .fs-top.show{ opacity:1; pointer-events:auto; }
@@ -365,12 +380,20 @@ table.price-table td.price{ font-weight:700; color:var(--brand-darker); white-sp
 /* ================= MOBILE ================= */
 @media (max-width: 980px){
   .main-nav{ display:none; }
+  .main-nav.nav-open{
+    display:flex; flex-direction:column; align-items:stretch; gap:2px;
+    position:absolute; top:100%; left:0; right:0; width:auto;
+    background:var(--white); border-bottom:1px solid var(--line);
+    padding:8px 20px 20px; box-shadow:0 16px 30px -14px rgba(20,26,12,.28);
+    max-height:calc(100vh - 90px); overflow-y:auto;
+  }
+  .main-nav.nav-open > a{ padding:13px 0; border-bottom:1px solid var(--line); }
   .nav-toggle{ display:flex; }
   .nav-item.has-dropdown{ width:100%; }
   .nav-dd-toggle{ width:100%; justify-content:space-between; padding:10px 0; }
   .nav-dropdown{
     position:static; opacity:1; pointer-events:auto; width:auto; box-shadow:none;
-    padding:0 0 0 10px; display:none; margin-top:2px;
+    padding:0 0 0 10px; display:none; margin-top:2px; transform:none;
   }
   .nav-item.open .nav-dropdown{ display:block; }
   .nav-dropdown-inner{ border:none; box-shadow:none; padding:0; gap:10px; }
@@ -400,6 +423,7 @@ table.price-table td.price{ font-weight:700; color:var(--brand-darker); white-sp
   .section{ padding:54px 0; }
   .container{ padding:0 18px; }
   .header-row{ padding:10px 16px; }
+  .policy-strip{ font-size:11.2px; padding:6px 10px; }
   .brand-text span{ display:none; }
   .hero{ padding:32px 0 48px; }
   .hero-stats{ flex-wrap:wrap; gap:18px; }
