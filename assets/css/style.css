@@ -114,19 +114,31 @@ button{ font-family:inherit; cursor:pointer; }
 .nav-dd-toggle:hover{ color:var(--brand-darker); }
 .nav-dd-toggle i{ font-size:11px; transition:transform .15s ease; }
 .nav-item.open .nav-dd-toggle i{ transform:rotate(180deg); }
+
+/* The gap between the button and the panel is INSIDE .nav-dropdown itself
+   (as padding-top), so the hoverable area is continuous - no dead zone
+   where the mouse "falls out" of the menu while moving down to it. */
 .nav-dropdown{
-  position:absolute; top:calc(100% + 12px); left:50%; transform:translate(-50%,-6px);
-  background:var(--white); border:1px solid var(--line); border-radius:var(--radius-md);
-  box-shadow:0 16px 34px -12px rgba(20,26,12,.22); padding:8px; min-width:280px;
-  opacity:0; pointer-events:none; transition:opacity .15s ease, transform .15s ease; z-index:60;
+  position:absolute; top:100%; left:50%; transform:translateX(-50%);
+  padding-top:14px; width:min(560px, 92vw);
+  opacity:0; pointer-events:none; transition:opacity .15s ease; z-index:60;
 }
 .nav-item.has-dropdown:hover .nav-dropdown,
-.nav-item.open .nav-dropdown{ opacity:1; pointer-events:auto; transform:translate(-50%,0); }
-.nav-dropdown a{
-  display:block; padding:10px 12px; border-radius:8px; font-size:14px; font-weight:500;
-  color:var(--ink-soft); border-bottom:none;
+.nav-item.open .nav-dropdown{ opacity:1; pointer-events:auto; }
+.nav-dropdown-inner{
+  background:var(--white); border:1px solid var(--line); border-radius:var(--radius-md);
+  box-shadow:0 20px 40px -14px rgba(20,26,12,.25); padding:10px; display:flex; flex-direction:column; gap:4px;
 }
-.nav-dropdown a:hover{ background:var(--brand-pale); color:var(--brand-darker); }
+.nav-article-card{
+  display:flex; align-items:center; gap:14px; padding:10px; border-radius:12px; border-bottom:none !important;
+}
+.nav-article-card:hover{ background:var(--brand-pale); }
+.nav-article-card img{
+  width:104px; height:66px; object-fit:cover; border-radius:8px; flex:none; background:var(--line);
+}
+.nav-article-card .nac-title{ display:block; font-size:14.5px; font-weight:700; color:var(--ink); line-height:1.35; margin-bottom:4px; }
+.nav-article-card:hover .nac-title{ color:var(--brand-darker); }
+.nav-article-card .nac-desc{ display:block; font-size:12.5px; color:var(--ink-soft); line-height:1.4; }
 
 .nav-toggle i{ font-size:20px; }
 
@@ -357,11 +369,14 @@ table.price-table td.price{ font-weight:700; color:var(--brand-darker); white-sp
   .nav-item.has-dropdown{ width:100%; }
   .nav-dd-toggle{ width:100%; justify-content:space-between; padding:10px 0; }
   .nav-dropdown{
-    position:static; opacity:1; pointer-events:auto; transform:none; box-shadow:none;
-    border:none; padding:0 0 0 14px; min-width:0; display:none; margin-top:2px;
+    position:static; opacity:1; pointer-events:auto; width:auto; box-shadow:none;
+    padding:0 0 0 10px; display:none; margin-top:2px;
   }
   .nav-item.open .nav-dropdown{ display:block; }
-  .nav-dropdown a{ padding:8px 0; font-size:14px; }
+  .nav-dropdown-inner{ border:none; box-shadow:none; padding:0; gap:10px; }
+  .nav-article-card{ padding:8px 0; }
+  .nav-article-card img{ width:84px; height:56px; }
+  .nav-article-card .nac-desc{ display:none; }
   .header-hotline span{ display:none; }
   .hero .container{ grid-template-columns:1fr; }
   .hero-media{ order:-1; max-width:380px; margin:0 auto; }
