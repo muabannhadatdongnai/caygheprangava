@@ -103,6 +103,31 @@ button{ font-family:inherit; cursor:pointer; }
 .header-hotline i{ font-size:18px; }
 
 .nav-toggle{ display:none; width:40px; height:40px; align-items:center; justify-content:center; border-radius:10px; border:1px solid var(--line-strong); background:var(--white); }
+
+/* ---- Nav dropdown: Kiến thức Implant ---- */
+.nav-item.has-dropdown{ position:relative; }
+.nav-dd-toggle{
+  font-family:inherit; font-size:14.5px; font-weight:500; color:var(--ink-soft);
+  background:none; border:none; padding:6px 0; border-bottom:2px solid transparent;
+  display:flex; align-items:center; gap:6px; cursor:pointer;
+}
+.nav-dd-toggle:hover{ color:var(--brand-darker); }
+.nav-dd-toggle i{ font-size:11px; transition:transform .15s ease; }
+.nav-item.open .nav-dd-toggle i{ transform:rotate(180deg); }
+.nav-dropdown{
+  position:absolute; top:calc(100% + 12px); left:50%; transform:translate(-50%,-6px);
+  background:var(--white); border:1px solid var(--line); border-radius:var(--radius-md);
+  box-shadow:0 16px 34px -12px rgba(20,26,12,.22); padding:8px; min-width:280px;
+  opacity:0; pointer-events:none; transition:opacity .15s ease, transform .15s ease; z-index:60;
+}
+.nav-item.has-dropdown:hover .nav-dropdown,
+.nav-item.open .nav-dropdown{ opacity:1; pointer-events:auto; transform:translate(-50%,0); }
+.nav-dropdown a{
+  display:block; padding:10px 12px; border-radius:8px; font-size:14px; font-weight:500;
+  color:var(--ink-soft); border-bottom:none;
+}
+.nav-dropdown a:hover{ background:var(--brand-pale); color:var(--brand-darker); }
+
 .nav-toggle i{ font-size:20px; }
 
 /* ================= HERO ================= */
@@ -329,6 +354,14 @@ table.price-table td.price{ font-weight:700; color:var(--brand-darker); white-sp
 @media (max-width: 980px){
   .main-nav{ display:none; }
   .nav-toggle{ display:flex; }
+  .nav-item.has-dropdown{ width:100%; }
+  .nav-dd-toggle{ width:100%; justify-content:space-between; padding:10px 0; }
+  .nav-dropdown{
+    position:static; opacity:1; pointer-events:auto; transform:none; box-shadow:none;
+    border:none; padding:0 0 0 14px; min-width:0; display:none; margin-top:2px;
+  }
+  .nav-item.open .nav-dropdown{ display:block; }
+  .nav-dropdown a{ padding:8px 0; font-size:14px; }
   .header-hotline span{ display:none; }
   .hero .container{ grid-template-columns:1fr; }
   .hero-media{ order:-1; max-width:380px; margin:0 auto; }

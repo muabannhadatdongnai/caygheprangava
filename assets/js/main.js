@@ -17,6 +17,31 @@
     });
   }
 
+  /* ---------- Nav dropdown: Kiến thức Implant ---------- */
+  document.querySelectorAll(".nav-item.has-dropdown").forEach(function (item) {
+    var toggle = item.querySelector(".nav-dd-toggle");
+    if (!toggle) return;
+    toggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var isOpen = item.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      document.querySelectorAll(".nav-item.has-dropdown").forEach(function (other) {
+        if (other !== item) {
+          other.classList.remove("open");
+          var t = other.querySelector(".nav-dd-toggle");
+          if (t) t.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+  });
+  document.addEventListener("click", function () {
+    document.querySelectorAll(".nav-item.has-dropdown.open").forEach(function (item) {
+      item.classList.remove("open");
+      var t = item.querySelector(".nav-dd-toggle");
+      if (t) t.setAttribute("aria-expanded", "false");
+    });
+  });
+
   /* ---------- FAQ accordion ---------- */
   document.querySelectorAll(".faq-item").forEach(function (item) {
     var q = item.querySelector(".faq-q");
