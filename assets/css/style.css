@@ -440,6 +440,18 @@ table.price-table td.price{ font-weight:700; color:var(--brand-darker); white-sp
   .float-sidebar a, .float-sidebar button{ width:46px; height:46px; font-size:21px; }
   .fs-label{ display:none; }
   .hero-floating-card{ left:8px; bottom:14px; padding:10px 14px; max-width:190px; }
+
+  /* Bảng giá: bỏ scroll ngang, xếp mỗi dòng thành 1 khối để không bị tràn màn hình */
+  .price-table-wrap{ overflow-x:visible; }
+  table.price-table{ min-width:0; font-size:14px; }
+  table.price-table thead{ display:none; }
+  table.price-table, table.price-table tbody, table.price-table tr, table.price-table td{ display:block; width:100%; }
+  table.price-table tr{ padding:12px 18px; border-bottom:1px solid var(--line); }
+  table.price-table tbody tr:last-child{ border-bottom:none; }
+  table.price-table td{ padding:0; border-bottom:none; white-space:normal; }
+  table.price-table td:first-child{ margin-bottom:4px; color:var(--ink-soft); }
+  table.price-table td.price{ font-size:15px; }
+  table.price-table caption{ padding:16px 18px 4px; }
 }
 
 @media (prefers-reduced-motion: reduce){
