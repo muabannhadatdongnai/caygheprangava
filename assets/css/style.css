@@ -344,6 +344,24 @@ table.price-table td.price{ font-weight:700; color:var(--brand-darker); white-sp
 .form-status.show{ display:block; }
 .form-status.ok{ background:var(--brand-pale); color:var(--brand-darker); }
 
+/* ================= TRUST STRIP (EN accreditation banner) ================= */
+.trust-strip{ background:var(--brand-pale); border-top:1px solid var(--brand-pale-2); border-bottom:1px solid var(--brand-pale-2); padding:22px 0; }
+.trust-strip-head{ display:flex; align-items:center; justify-content:center; gap:10px; font-weight:700; font-size:15px; color:var(--brand-darker); text-align:center; }
+.trust-strip-head i{ font-size:18px; }
+.trust-strip-items{ display:flex; align-items:center; justify-content:center; gap:18px; flex-wrap:wrap; margin-top:12px; }
+.trust-strip-item{ display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; color:var(--ink-soft); }
+.trust-strip-item i{ font-size:15px; color:var(--brand-dark); }
+.trust-strip-divider{ width:1px; height:16px; background:var(--brand-pale-2); }
+@media (max-width:640px){ .trust-strip-divider{ display:none; } }
+
+/* ================= WHATSAPP CTA (EN only) ================= */
+.float-sidebar .fs-whatsapp{ background:transparent; padding:0; overflow:hidden; }
+.float-sidebar .fs-whatsapp img{ width:100%; height:100%; border-radius:50%; object-fit:cover; }
+.contact-list .fa-whatsapp, .contact-social .fa-whatsapp{ color:inherit; }
+.contact-social a.social-whatsapp:hover{ background:#25D366; border-color:#25D366; }
+.no-hidden-fees{ display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:700; color:var(--brand-darker); background:var(--brand-pale); border:1px solid var(--brand-pale-2); padding:7px 14px; border-radius:99px; margin-top:14px; }
+.no-hidden-fees i{ font-size:14px; }
+
 /* ================= CTA BANNER ================= */
 .cta-banner{ background:var(--brand-darker); color:#fff; border-radius:var(--radius-lg); padding:54px 48px; display:flex; align-items:center; justify-content:space-between; gap:30px; flex-wrap:wrap; }
 .cta-banner h2{ color:#fff; font-size:clamp(22px,2.8vw,30px); max-width:480px; }
@@ -371,6 +389,7 @@ table.price-table td.price{ font-weight:700; color:var(--brand-darker); white-sp
 .float-sidebar .fs-zalo{ background:transparent; padding:0; overflow:hidden; }
 .float-sidebar .fs-zalo img{ width:100%; height:100%; border-radius:50%; object-fit:cover; }
 .ico-zalo{ width:1em; height:1em; display:inline-block; vertical-align:-0.16em; border-radius:50%; }
+.ico-whatsapp{ width:1em; height:1em; display:inline-block; vertical-align:-0.16em; border-radius:50%; }
 .float-sidebar .fs-messenger{ background:#0084ff; }
 .float-sidebar .fs-top{ background:#2c3320; opacity:0; pointer-events:none; transition:opacity .2s ease; }
 .float-sidebar .fs-top.show{ opacity:1; pointer-events:auto; }

@@ -138,7 +138,7 @@
         }
         status.classList.add("ok");
         status.textContent = lang
-          ? "Thanks! This form is a front-end demo only — connect it to Formspree, a serverless function, or your CRM to actually receive submissions. Meanwhile, please call or Zalo us directly."
+          ? "Thanks! This form is a front-end demo only — connect it to Formspree, a serverless function, or your CRM to actually receive submissions. Meanwhile, please call or WhatsApp us directly."
           : "Cảm ơn bạn! Form này mới chỉ là giao diện demo — cần kết nối tới Formspree, serverless function hoặc CRM để nhận được dữ liệu thật. Trong lúc chờ, vui lòng gọi hotline hoặc nhắn Zalo để được hỗ trợ ngay.";
         status.classList.add("show");
         form.reset();
